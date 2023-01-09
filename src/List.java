@@ -1,4 +1,4 @@
-public class List {
+public class List implements Cloneable{
     protected int size;
     public Student[] list;
 
@@ -89,5 +89,10 @@ public class List {
 
         this.list = new_list;
         this.size++;
+    }
+
+    @Override
+    public List clone() throws CloneNotSupportedException{
+        return (List) super.clone();
     }
 }
