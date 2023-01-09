@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Student extends Person_data{
+public class Student extends Person_data implements Cloneable{
 
     public Average_marks average_marks;
     public Adress adress;
@@ -64,13 +64,6 @@ public class Student extends Person_data{
         this.contacts = new Contacts();
     }
 
-    public  Student(Student unit) {
-        this.full_name = new Full_name(unit.full_name);
-        this.set_gender(unit.get_gender());
-        this.average_marks = new Average_marks(unit.average_marks);
-        this.adress = new Adress(unit.adress);
-        this.contacts = new Contacts(unit.contacts);
-    }
     @Override
     public int input_data()  {
         boolean flag = true;
@@ -103,5 +96,15 @@ public class Student extends Person_data{
         this.average_marks.print();
         this.adress.print();
         this.contacts.print();
+    }
+    @Override
+    public Student clone() throws CloneNotSupportedException{
+       Student NewStudent = new Student();
+        NewStudent.full_name = new Full_name(this.full_name);
+        NewStudent.set_gender(this.get_gender());
+        NewStudent.average_marks = new Average_marks(this.average_marks);
+        NewStudent.adress = new Adress(this.adress);
+        NewStudent.contacts = new Contacts(this.contacts);
+        return NewStudent;
     }
 }
