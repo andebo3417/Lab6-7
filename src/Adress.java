@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Adress {
+public class Adress implements  Printable{
     private String city;
     private String street;
     private int house_number;
@@ -20,6 +20,12 @@ public class Adress {
         set_flat_number(flat_number);
     }
 
+    public Adress() {
+        city = "N/A";
+        street = "N/A";
+        house_number = 0;
+        flat_number = 0;
+    }
     public Adress(Adress unit) {
         this.set_city(unit.get_city());
         this.set_street(unit.get_street());
@@ -131,5 +137,7 @@ public class Adress {
         return 0;
     }
 
-
+    public void print() {
+        System.out.print("Adress: " + this.get_full_adress() + "\n");
+    }
 }

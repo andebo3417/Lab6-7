@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Average_marks {
+public class Average_marks implements  Printable{
     private int physics;
     private int math;
     private int economics;
@@ -106,4 +106,10 @@ public class Average_marks {
         return 0;
     }
 
+    public void print() {
+        System.out.print("Average marks: \n");
+        System.out.print("\tPhysics: " + this.get_physics() + "\n");
+        System.out.print("\tMath: " + this.get_math() + "\n");
+        System.out.print("\tEconomics: " + this.get_economics() + "\n");
+    }
 }

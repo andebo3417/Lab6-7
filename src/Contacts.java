@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
-public class Contacts {
+public class Contacts implements Printable{
     private Phone_number student;
     private Phone_number parent;
 
     private Scanner reader = new Scanner(System.in);
 
     public Contacts(String student_number, String parent_number) {
-        set_student_number(student_number);
-        set_parent_number(parent_number);
+        student = new Phone_number(student_number);
+        parent = new Phone_number(parent_number);
     }
 
     public  Contacts() {
         String number = "+00000000000";
-        set_student_number(number);
-        set_parent_number(number);
+        student = new Phone_number(number);
+        parent = new Phone_number(number);
     }
 
     public Contacts(Contacts unit) {
-        this.student.set_number(unit.get_student_number());
-        this.parent.set_number(unit.get_parent_number());
+        student = new Phone_number(unit.get_student_number());
+        parent = new Phone_number(unit.get_parent_number());
     }
 
     public int set_student_number(String number) {
@@ -64,5 +64,10 @@ public class Contacts {
 
 
         return 0;
+    }
+
+    public void print() {
+        System.out.print("Student phone number: " + this.get_student_number() + "\n");
+        System.out.print("Parent phone number: " + this.get_parent_number() + "\n");
     }
 }
