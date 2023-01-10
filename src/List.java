@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class List implements Cloneable{
     protected int size;
     public Student[] list;
@@ -94,5 +96,14 @@ public class List implements Cloneable{
     @Override
     public List clone() throws CloneNotSupportedException{
         return (List) super.clone();
+    }
+
+    public static int findByName(ArrayList<List> lists, String desiredName) {
+        for (int i = 0; i <lists.size(); i++) {
+            for (Student unit : lists.get(i).list) {
+                if (unit.full_name.get_full_name().equals(desiredName)) return i;
+            }
+        }
+        return -1;
     }
 }
