@@ -37,7 +37,7 @@ public class List implements Cloneable{
             System.out.print("\nStudent added to list.\n");
             return 0;
         }
-    else {
+        else {
             System.out.print("\nSomething went wrong.\n");
             return -1;
         }

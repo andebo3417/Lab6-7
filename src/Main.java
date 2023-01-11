@@ -28,10 +28,11 @@ public class Main {
                 System.out.print("[8] - Switch list\n");
                 System.out.print("[9] - Found student by name\n");
                 System.out.print("[10] - Sort lists of students by size in descending order\n");
+                System.out.print("[11] - Delete list by number\n");
                 System.out.print("[0] - Exit\n\n>");
                 answer = reader.next();
                 try {
-                    if (Integer.parseInt(answer) >= 0 && Integer.parseInt(answer) < 11) {
+                    if (Integer.parseInt(answer) >= 0 && Integer.parseInt(answer) < 12) {
                         flag = true;
                     }
                     else {
@@ -218,6 +219,28 @@ public class Main {
                 case 10:
                     Collections.sort(lists, new Comp());
                     System.out.print("\nLists were sorted.\n\n");
+                    break;
+                case 11:
+                    try {
+                        System.out.print("Enter number of list (1 - " + lists.size() + ")\n>");
+                        number = reader.next();
+                        if (Integer.parseInt(number) > 0 && Integer.parseInt(number) <= lists.size()) {
+                            lists.remove(Integer.parseInt(number) - 1);
+                            if (Integer.parseInt(number) - 1 == curList) {
+                                curList = 0;
+                            }
+                            if (Integer.parseInt(number) - 1 < curList) {
+                                curList--;
+                            }
+                            System.out.print("\nList was deleted.\n\n");
+                        }
+                        else {
+                            System.out.print("\nNumber of list is out of range.\n\n");
+                        }
+                    }
+                    catch (NumberFormatException ex) {
+                        System.out.print("\nIncorrect input.\n\n");
+                    }
                     break;
                 default:
                     leave = true;

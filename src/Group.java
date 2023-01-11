@@ -1,41 +1,39 @@
 public class Group<T> extends List{
-    public GroupName<T> name;
+    public T name;
 
-    Teacher teacher;
+    public Teacher teacher;
 
     public Group(T name, Teacher teacher) {
         super(0);
-        this.name = new GroupName<T>(name);
+        this.name = name;
         this.teacher = teacher;
     }
 
     public Group(List list, T name, Teacher teacher) {
         super(0);
-        this.name = new GroupName<T>(name);
+        this.name = name;
         this.teacher = teacher;
 		this.size = list.size;
         this.list = list.list;
-    };
+    }
 
-    public int append(Student unit) {
+    public void append(Student unit) {
         this.extend();
 
         this.list[this.length() - 1] = unit;
-
-        return 0;
-    };
+    }
 
     public int set_name(T name) {
         if (name.toString().length() > 0) {
-            this.name.setName(name);
+            this.name = name;
             return 0;
         }
         else return -1;
-    };
+    }
 
     public T get_name() {
-        return this.name.getName();
-    };
+        return this.name;
+    }
 
     @Override
     public void print() throws LengthException{
@@ -53,5 +51,5 @@ public class Group<T> extends List{
         }
 		else
         throw new LengthException("\nList is empty.\n\n");
-    };
+    }
 }

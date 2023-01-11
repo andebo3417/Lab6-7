@@ -56,6 +56,14 @@ public class Student extends Person_data implements Cloneable{
         this.average_marks = new Average_marks(marks);
     }
 
+    public Student(Student unit) {
+        this.full_name = unit.full_name;
+        this.set_gender(unit.get_gender());
+        this.adress = unit.adress;
+        this.average_marks = unit.average_marks;
+        this.contacts = unit.contacts;
+    }
+
     public Student() {
         this.full_name = new Full_name();
         this.set_gender(true);
